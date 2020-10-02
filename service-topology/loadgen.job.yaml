@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadgen
+spec:
+  template:
+    spec:
+      nodeSelector:
+        "demo": svctopology
+      containers:
+      - name: loadgen
+        image: loadimpact/k6
+        command: ["/usr/bin/k6", "run", "/var/tmp/k6-script.js"]
+        volumeMounts:
+        - name: script-volume
+          mountPath: /var/tmp
+      restartPolicy: Never
+      volumes:
+        - name: script-volume
+          configMap:
+            name: k6-script
+  backoffLimit: 2
