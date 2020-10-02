@@ -218,7 +218,7 @@ az aks nodepool add \
     --zones 1 2 3 \
     --labels demo=svctopology
 
-kubectl describe nodes | grep -e Name: -e zone
+kubectl describe nodes --selector demo=svctopology | grep -e Name: -e zone
 
 kubectl apply -f service-topology/nginx.deploy.yaml
 kubectl get pod -o wide --selector app=nginx
