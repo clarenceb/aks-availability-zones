@@ -411,6 +411,12 @@ TODO
 As the results show, there isn't a lot of difference with the various service topologies.
 To create a more realistic scenario, have more east-west traffic (chained calls) and other background traffic going on.
 
+Update 2021-06-09:
+
+* Service Topology and Topology-aware traffic routing are both in feature state alpha so cannot be tested in AKs yet
+* Either use AKS Engine or the planned "[alpha clusters](https://github.com/Azure/AKS/issues/2058)" feautre for AKS to test topology aware routing
+* This is likely to be the reason why the above results were inconclusive
+
 References
 ----------
 
